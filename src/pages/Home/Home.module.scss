@@ -1,0 +1,28 @@
+.home {
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+
+  .search_form {
+    max-width: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+
+    input {
+      margin-right: 10px;
+      width: 50%;
+    }
+  }
+
+  .gallery {
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px auto;
+  }
+}

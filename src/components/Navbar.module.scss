@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 2em;
+
+  a {
+    // Okay, the "NavLink" is called "a" here. We can look it up on the DevTools to know what is called what in here
+    font-size: 1.2em;
+    span {
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+  }
+
+  .links_list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+    li {
+      margin-right: 1em;
+
+      a,
+      button {
+        padding: 0.4em 0.7em;
+        background-color: white;
+      }
+    }
+
+    .smallButton {
+      padding: 0.3em 0.7em;
+      font-size: 1.15em;
+    }
+
+  }
+}
+
+/* <Navlink Active Css /> */
+.active {
+  background-color: black !important;
+  color: white;
+}
+/* <Active Link Css /> */
+
