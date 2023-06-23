@@ -1,16 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 .navbar {
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
   justify-content: space-between;
   align-items: center;
   padding: 0.5em 2em;
+  background-color: #475EDF;
 
-  a {
-    // Okay, the "NavLink" is called "a" here. We can look it up on the DevTools to know what is called what in here
-    font-size: 1.2em;
+  > a {
+    font-family: "Staatliches", cursive;
+    font-size: 2em;
+    color: #BF26C1;
+    -webkit-text-stroke: 1px white;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex-wrap: wrap;
     span {
+      font-size: 1.2em;
       font-weight: 900;
       text-transform: uppercase;
+      color: #3B52D3;
     }
   }
 
@@ -18,15 +29,37 @@
     display: flex;
     list-style: none;
     align-items: center;
+    flex-wrap: wrap;
 
     li {
       margin-right: 1em;
 
+
+    
       a,
       button {
+        font-size: 1.2em;
         padding: 0.4em 0.7em;
-        background-color: white;
+        color: white;
+
+        background: lighten(#475EDF, 3%);  
+        border: 1px solid darken(#475EDF, 4%);
+        box-shadow: 0px 2px 0 darken(#475EDF, 5%), 2px 4px 6px darken(#475EDF, 2%);
+        font-weight: 900;
+        letter-spacing: 1px;
+        transition: all 150ms linear;
       }
+      a:hover,
+      button:hover {
+      background: darken(#475EDF, 1.5%);
+      border: 1px solid rgba(#000, .05);
+      box-shadow: 1px 1px 2px rgba(#fff, .2);
+      color: lighten(#475EDF, 18%); 
+      text-decoration: none;
+      text-shadow: -1px -1px 0 darken(#475EDF, 9.5%);
+      transition: all 250ms linear;
+      }
+      
     }
 
     .smallButton {

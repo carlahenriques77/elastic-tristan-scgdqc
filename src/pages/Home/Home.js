@@ -21,17 +21,19 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <h1>Recent Posts</h1>
+      <div>
+        <h1>Recent Posts</h1>
 
-      <form className={styles.search_form} onSubmit={homeHandleSubmit}>
-        <input
-          type="text"
-          placeholder="Search for #Tags..."
-          onChange={(changeEvent) => setHomeQuery(changeEvent.target.value)}
-        />
+        <form className={styles.search_form} onSubmit={homeHandleSubmit}>
+          <input
+            type="text"
+            placeholder="Search for #Tags..."
+            onChange={(changeEvent) => setHomeQuery(changeEvent.target.value)}
+          />
 
-        <button className="btn btn-dark">Search</button>
-      </form>
+          <button className="btn btn-dark">Search</button>
+        </form>
+      </div>
 
       {fetchLoadingStatus && <p>Loading...</p>}
       <div className={styles.gallery}>

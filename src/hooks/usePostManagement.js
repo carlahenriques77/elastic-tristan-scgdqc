@@ -4,7 +4,7 @@ import { db } from "..";
 
 const initialState = {
   managementLoading: null,
-  managementError: null,
+  managementError: null
 };
 
 const insertReducer = (state, action) => {
@@ -28,7 +28,7 @@ export const useCreatePost = (docCollection) => {
     initialState
   );
 
-  const [createLoading, setCreateLoading] = useState(false)
+  const [createLoading, setCreateLoading] = useState(false);
   const [createCancelled, setCreateCancelled] = useState(false);
 
   const checkCancelBeforeDispatch = (cancelAction) => {
@@ -38,10 +38,10 @@ export const useCreatePost = (docCollection) => {
   };
 
   const insertDocument = async (insertEvent) => {
-    setCreateLoading(true)
+    setCreateLoading(true);
 
     checkCancelBeforeDispatch({
-      type: "LOADING",
+      type: "LOADING"
     });
 
     try {
@@ -54,23 +54,23 @@ export const useCreatePost = (docCollection) => {
 
       checkCancelBeforeDispatch({
         type: "INSERTED_DOC",
-        payload: insertedDocument,
+        payload: insertedDocument
       });
 
-      setCreateLoading(false)
+      setCreateLoading(false);
     } catch (managementError) {
       checkCancelBeforeDispatch({
         type: "ERROR",
-        payload: managementError.message,
+        payload: managementError.message
       });
 
-      setCreateLoading(false)
+      setCreateLoading(false);
     }
   };
 
   useEffect(() => {
-    return () => setCreateCancelled(true)
-  }, [])
+    return () => setCreateCancelled(true);
+  }, []);
 
-  return {insertDocument, createResponse, createLoading}
+  return { insertDocument, createResponse, createLoading };
 };

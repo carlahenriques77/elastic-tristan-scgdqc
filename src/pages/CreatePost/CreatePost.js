@@ -11,8 +11,12 @@ const CreatePost = () => {
   const [postTags, setPostTags] = useState([]);
   const [formError, setFormError] = useState("");
   const { currentUser } = useAuthValue();
-  const { insertDocument, createResponse, createLoading } = useCreatePost("posts");
-  const submitFormRedirect = useNavigate()
+  const { insertDocument, createResponse, createLoading } = useCreatePost(
+    "posts"
+  );
+  const submitFormRedirect = useNavigate();
+
+  const [selectedLanguage, setSelectedLanguage] = useState("");
 
   const formHandleSubmit = (submitEvent) => {
     submitEvent.preventDefault();
@@ -26,9 +30,17 @@ const CreatePost = () => {
       return;
     }
 
-    const tagsArray = postTags.split(",").map((postTag) => postTag.trim().toLowerCase());
+    const tagsArray = postTags
+      .split(",")
+      .map((postTag) => postTag.trim().toLowerCase());
 
-    if (!postTitle || !postImage || !postTags || !postBody) {
+    if (
+      !postTitle ||
+      !postImage ||
+      !postTags ||
+      !postBody ||
+      !selectedLanguage
+    ) {
       setFormError("Please fill all of the inputs.");
       return;
     }
@@ -38,6 +50,7 @@ const CreatePost = () => {
       postImage,
       postBody,
       tagsArray,
+      selectedLanguage,
       uid: currentUser.uid,
       createdBy: currentUser.displayName
     });
@@ -90,10 +103,31 @@ const CreatePost = () => {
             value={postTags}
           />
         </label>
+        <label>
+          <span>Language:</span>
+          <select
+            value={selectedLanguage}
+            onChange={(e) => setSelectedLanguage(e.target.value)}
+          >
+            <option value="">Select a language</option>
+            <option value="https://images.freeimages.com/fic/images/icons/662/world_flag/256/flag_of_united_kingdom.png">
+              English
+            </option>
+            <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Spain_flag_icon.svg/2048px-Spain_flag_icon.svg.png">
+              Spanish
+            </option>
+          </select>
+        </label>
 
         {!createLoading && <button className="btn">Create</button>}
-        {createLoading && <button className="btn" disabled>Loading...</button>}
-        {createResponse.managementError && <p className="error">{createResponse.managementError}</p>}
+        {createLoading && (
+          <button className="btn" disabled>
+            Loading...
+          </button>
+        )}
+        {createResponse.managementError && (
+          <p className="error">{createResponse.managementError}</p>
+        )}
         {formError && <p className="error">{formError}</p>}
       </form>
     </div>

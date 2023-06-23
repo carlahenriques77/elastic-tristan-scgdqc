@@ -4,6 +4,12 @@
   display: flex;
   flex-direction: column;
   will-change: transform;
+  background-color: #1b1c1e;
+  color: white;
+
+  > div {
+    background-color: black;
+  }
 
   .search_form {
     max-width: 100%;
@@ -19,10 +25,23 @@
   }
 
   .gallery {
-    white-space: nowrap;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0px auto;
+			column-count: 4;
+      column-gap: 10px;
+      margin: auto 20px;
+      background-color: #1b1c1e;
+      padding: 30px 0;
   }
+}
+
+@media screen and (max-width: 900px) and (min-width: 0px) {
+ .gallery {
+  column-count: 2 !important;
+ }
+}
+
+h1 {
+  
+  text-align: center;
+  margin: 20px 0;
+  font-family: "Staatliches", cursive;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./Login.module.scss";
+import "./Login.scss";
 
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -19,7 +19,7 @@ const Login = () => {
 
     const userDetails = {
       formEmail,
-      formPassword,
+      formPassword
     };
 
     await loginUser(userDetails);
@@ -32,16 +32,17 @@ const Login = () => {
   }, [authError]);
 
   return (
-    <div className={styles.login}>
-      <h2>LogIn to Upload</h2>
+    <div className="register_div">
+      <h2 className="register_title">LogIn to Upload</h2>
 
-      <p>LogIn and Share your Histories</p>
+      <p className="register_desc">LogIn and Share your Histories</p>
 
-      <form onSubmit={formHandleSubmit}>
-        <label htmlFor="">
-          <span>Email:</span>
+      <form className="register_form" onSubmit={formHandleSubmit}>
+        <label className="register_label" htmlFor="">
+          <span className="register_label_span">Email:</span>
 
           <input
+            className="register_input"
             type="mail"
             name="Email"
             required
@@ -51,10 +52,11 @@ const Login = () => {
           />
         </label>
 
-        <label htmlFor="">
-          <span>Password:</span>
+        <label className="register_label" htmlFor="">
+          <span className="register_label_span">Password:</span>
 
           <input
+            className="register_input"
             type="password"
             name="secretCode"
             required
@@ -67,9 +69,9 @@ const Login = () => {
           />
         </label>
 
-        {!authLoading && <button className="btn">LogIn</button>}
+        {!authLoading && <button className="signup_button">LogIn</button>}
         {authLoading && (
-          <button className="btn" disabled>
+          <button className="signup_button" disabled>
             Loading...
           </button>
         )}

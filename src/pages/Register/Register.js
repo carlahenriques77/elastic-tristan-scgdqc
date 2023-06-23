@@ -1,7 +1,6 @@
 import React from "react";
 
-// import / style
-import styles from "./Register.module.scss";
+import "./Register.scss";
 
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -23,7 +22,7 @@ const Register = () => {
     const userDetails = {
       formDisplayName,
       formEmail,
-      formPassword,
+      formPassword
     };
 
     if (formPassword !== formConfirmPassword) {
@@ -41,16 +40,19 @@ const Register = () => {
   }, [authError]);
 
   return (
-    <div className={styles.registerDiv}>
-      <h2>SignUp to Upload</h2>
+    <div className="register_div">
+      <h2 className="register_title">SignUp to Upload</h2>
 
-      <p>Create your Account and Share your Histories</p>
+      <p className="register_desc">
+        Create your Account and Share your Histories
+      </p>
 
-      <form onSubmit={formHandleSubmit}>
-        <label htmlFor="">
-          <span>Name:</span>
+      <form onSubmit={formHandleSubmit} className="register_form">
+        <label className="register_label" htmlFor="">
+          <span className="register_label_span">Name:</span>
 
           <input
+            className="register_input"
             type="text"
             name="formDisplayName"
             required
@@ -62,10 +64,11 @@ const Register = () => {
           />
         </label>
 
-        <label htmlFor="">
-          <span>Email:</span>
+        <label className="register_label" htmlFor="">
+          <span className="register_label_span">Email:</span>
 
           <input
+            className="register_input"
             type="mail"
             name="Email"
             required
@@ -75,10 +78,11 @@ const Register = () => {
           />
         </label>
 
-        <label htmlFor="">
-          <span>Password:</span>
+        <label className="register_label" htmlFor="">
+          <span className="register_label_span">Password:</span>
 
           <input
+            className="register_input"
             type="password"
             name="secretCode"
             required
@@ -91,10 +95,11 @@ const Register = () => {
           />
         </label>
 
-        <label htmlFor="">
-          <span>Confirm Password:</span>
+        <label className="register_label" htmlFor="">
+          <span className="register_label_span">Confirm Password:</span>
 
           <input
+            className="register_input"
             type="password"
             name="ConfirmSecretCode"
             required
@@ -107,8 +112,12 @@ const Register = () => {
           />
         </label>
 
-        {!authLoading && <button className="btn">signUp</button>}
-        {authLoading && <button className="btn" disabled>Loading...</button>}
+        {!authLoading && <button className="signup_button">Register</button>}
+        {authLoading && (
+          <button className="signup_button" disabled>
+            Loading...
+          </button>
+        )}
         {formError && <p className="error">{formError}</p>}
       </form>
     </div>

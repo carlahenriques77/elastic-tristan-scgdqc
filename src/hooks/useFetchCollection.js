@@ -5,7 +5,7 @@ import {
   query,
   orderBy,
   onSnapshot,
-  where,
+  where
 } from "firebase/firestore";
 
 export const useFetchCollection = (
@@ -49,7 +49,7 @@ export const useFetchCollection = (
           setFetchedDocuments(
             querySnapshot.docs.map((doc) => ({
               id: doc.id,
-              ...doc.data(),
+              ...doc.data()
             }))
           );
         });
@@ -74,6 +74,6 @@ export const useFetchCollection = (
   return {
     fetchedDocuments,
     fetchLoadingStatus,
-    fetchErrorState,
+    fetchErrorState
   };
 };
