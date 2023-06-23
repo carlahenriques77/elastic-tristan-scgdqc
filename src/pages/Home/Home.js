@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Home.module.scss";
+import "./Home.scss";
 import { useNavigate, Link } from "react-router-dom";
 import { useFetchCollection } from "../../hooks/useFetchCollection";
 import PostDetail from "../../components/PostDetail";
@@ -20,23 +20,24 @@ const Home = () => {
   };
 
   return (
-    <div className={styles.home}>
-      <div>
-        <h1>Recent Posts</h1>
+    <div className="home_container">
+      <div className="search_form_container">
+        <h1 className="home_title">Recent Posts</h1>
 
-        <form className={styles.search_form} onSubmit={homeHandleSubmit}>
+        <form className="home_search_form" onSubmit={homeHandleSubmit}>
           <input
+          className="home_search_input"
             type="text"
             placeholder="Search for #Tags..."
             onChange={(changeEvent) => setHomeQuery(changeEvent.target.value)}
           />
 
-          <button className="btn btn-dark">Search</button>
+          <button className="home_search_button">Search</button>
         </form>
       </div>
 
       {fetchLoadingStatus && <p>Loading...</p>}
-      <div className={styles.gallery}>
+      <div className="home_posts_gallery">
         {fetchedDocuments &&
           fetchedDocuments.map((fetchedPost) => (
             <PostDetail key={fetchedPost.id} displayPost={fetchedPost} />
@@ -44,10 +45,10 @@ const Home = () => {
       </div>
 
       {fetchedDocuments && fetchedDocuments.length === 0 && (
-        <div className={styles.noposts}>
+        <div className="home_noposts">
           <p>No Posts Found...</p>
 
-          <Link to="/Posts/Create" className="btn">
+          <Link to="/Posts/Create" className="home_create_first_post_button">
             Create the First Post
           </Link>
         </div>

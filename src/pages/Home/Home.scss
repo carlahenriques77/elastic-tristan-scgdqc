@@ -1,0 +1,94 @@
+.home_container {
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  background-color: #1b1c1e;
+  color: white;
+
+  .search_form_container {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .home_title {
+      text-align: center;
+      margin: 20px 0;
+      font-family: "Staatliches", cursive;
+    }
+    
+      .home_search_form {
+        max-width: 100%;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+    
+        .home_search_input {
+          margin-right: 8px;
+          width: 60%;
+          color: rgb(36, 35, 42);
+          font-size: 16px;
+          line-height: 20px;
+          min-height: 28px;
+          border-radius: 4px;
+          padding: 8px 16px;
+          border: 2px solid transparent;
+          box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+          background: rgb(251, 251, 251);
+          transition: all 0.1s ease 0s;
+          &:focus{
+              border: 2px solid rgb(124, 138, 255);
+              outline: none;
+          }
+      
+        }
+
+        .home_search_button {
+        
+          font-family: "Staatliches", cursive;
+          display: inline-block;
+          outline: 0;
+          border: 0;
+          font-size: 20px;
+          font-weight: 500;
+          color: #000;
+          cursor: pointer;
+          background-image: linear-gradient(to right,#e052a0,#f15c41)!important;
+          border-radius: 3px;
+          padding: 16px 18px 15px;
+          white-space: nowrap;
+
+          &:hover {
+              background-color: #e6375a;
+              background-image: none!important;
+          }
+          
+      
+        }
+      }
+    }
+      .home_posts_gallery {
+          column-count: 4;
+          column-gap: 10px;
+          margin: auto 20px;
+          background-color: #1b1c1e;
+          padding: 30px 0;
+      }
+.home_noposts {
+
+  .home_create_post_button {
+
+  }
+}
+
+}
+
+@media screen and (max-width: 900px) and (min-width: 0px) {
+  .home_posts_gallery {
+   column-count: 2 !important;
+  }
+ }

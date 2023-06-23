@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./Navbar.module.scss";
+import "./Navbar.scss";
 
 import { NavLink } from "react-router-dom";
 import { useAuthentication } from "../hooks/useAuthentication";
@@ -12,33 +12,33 @@ const Navbar = () => {
   const { logoutUser } = useAuthentication();
 
   return (
-    <nav className={styles.navbar}>
-      <NavLink to="/" className={styles.brand}>
-        Mini <span>Blog</span>
+    <nav className="navbar_div">
+      <NavLink className="website_brand_title" to="/">
+        Mini <span className="miniblog_span">Blog</span>
       </NavLink>
-      <ul className={styles.links_list}>
-        <li>
+      <ul className="navbar_links_list">
+        <li className="nav_li_link">
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? styles.active : "")}
+            className={({ isActive }) => (isActive ? "active" : "")}
           >
             Home
           </NavLink>
         </li>
-        <li>
+        <li className="nav_li_link">
           <NavLink
             to="/About"
-            className={({ isActive }) => (isActive ? styles.active : "")}
+            className={({ isActive }) => (isActive ? "active" : "")}
           >
             About
           </NavLink>
         </li>
         {currentUser && (
           <>
-          <li>
+          <li className="nav_li_link">
             <NavLink
               to="/Posts/Create"
-              className={({ isActive }) => (isActive ? styles.active : "")}
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               CreatePost
             </NavLink>
@@ -47,25 +47,25 @@ const Navbar = () => {
         )}
         {!currentUser && (
           <>
-            <li>
+            <li className="nav_li_link">
               <NavLink
                 to="/Register"
                 className={({ isActive }) =>
                   isActive
-                    ? styles.active + " " + styles.smallButton
-                    : styles.smallButton
+                    ? "active" + " " + "smallButton"
+                    : "smallButton"
                 }
               >
                 Register
               </NavLink>
             </li>
-            <li>
+            <li className="nav_li_link">
               <NavLink
                 to="/Login"
                 className={({ isActive }) =>
                   isActive
-                    ? styles.active + " " + styles.smallButton
-                    : styles.smallButton
+                    ? "active" + "smallButton"
+                    : "smallButton"
                 }
               >
                 Login
@@ -75,8 +75,8 @@ const Navbar = () => {
         )}
         {currentUser && (
           <>
-            <li>
-              <button onClick={logoutUser} className={styles.smallButton}>
+            <li className="nav_li_link">
+              <button onClick={logoutUser} className="small_button">
                 Logout
               </button>
             </li>

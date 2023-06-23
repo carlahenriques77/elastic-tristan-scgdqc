@@ -1,4 +1,4 @@
-import styles from "./CreatePost.module.scss";
+import "./CreatePost.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
@@ -59,53 +59,69 @@ const CreatePost = () => {
   };
 
   return (
-    <div className={styles.create_post}>
-      <h2>Create Post</h2>
-      <p>Paragraph</p>
-      <form onSubmit={formHandleSubmit}>
-        <label>
-          <span>Title:</span>
+    <div className="container_create">
+      <img
+        className="create_post_girl"
+        src="https://bestprofilepictures.com/wp-content/uploads/2022/09/Pretty-Anime-Girl-Profile-Picture-1024x1024.jpg"
+        alt="image"
+      />
+
+      <form className="create_post_form" onSubmit={formHandleSubmit}>
+        <h2 className="createpost_title">New Post</h2>
+        <p className="createpost_desc">Connect and Engage</p>
+
+        <label className="createpost_label">
+          <span className="createpost_input_span">Title:</span>
           <input
+            className="createpost_input"
             type="text"
             name="postTitle"
             placeholder="Post Title"
-            onChange={(e) => setPostTitle(e.target.value)}
+            onChange={(changeEvent) => setPostTitle(changeEvent.target.value)}
             value={postTitle}
           />
         </label>
-        <label>
-          <span>Image URL:</span>
+
+        <label className="createpost_label">
+          <span className="createpost_input_span">Image URL:</span>
           <input
+            className="createpost_input"
             type="text"
             name="postImage"
             placeholder="Image URL"
-            onChange={(e) => setPostImage(e.target.value)}
+            onChange={(changeEvent) => setPostImage(changeEvent.target.value)}
             value={postImage}
           />
         </label>
-        <label>
-          <span>Conteúdo:</span>
+
+        <label className="createpost_label">
+          <span className="createpost_input_span">Description:</span>
           <input
+            className="createpost_input"
             type="text"
             name="postBody"
-            placeholder="Content"
-            onChange={(e) => setPostBody(e.target.value)}
+            placeholder="Enter Post Description"
+            onChange={(changeEvent) => setPostBody(changeEvent.target.value)}
             value={postBody}
           />
         </label>
-        <label>
-          <span>Tags:</span>
+
+        <label className="createpost_label">
+          <span className="createpost_input_span">Tags:</span>
           <input
+            className="createpost_input"
             type="text"
             name="postTags"
-            placeholder="Insira as postTags separadas por vírgula"
-            onChange={(e) => setPostTags(e.target.value)}
+            placeholder="Add Tags (comma-separated)"
+            onChange={(changeEvent) => setPostTags(changeEvent.target.value)}
             value={postTags}
           />
         </label>
-        <label>
-          <span>Language:</span>
+
+        <label className="createpost_label">
+          <span className="createpost_input_span">Language:</span>
           <select
+            className="language_select"
             value={selectedLanguage}
             onChange={(e) => setSelectedLanguage(e.target.value)}
           >
@@ -119,12 +135,14 @@ const CreatePost = () => {
           </select>
         </label>
 
-        {!createLoading && <button className="btn">Create</button>}
-        {createLoading && (
-          <button className="btn" disabled>
+        {!createLoading ? (
+          <button className="nice_button_1">Create</button>
+        ) : (
+          <button className="nice_button_1" disabled>
             Loading...
           </button>
         )}
+
         {createResponse.managementError && (
           <p className="error">{createResponse.managementError}</p>
         )}

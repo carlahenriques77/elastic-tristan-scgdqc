@@ -1,0 +1,78 @@
+
+.container_create {
+margin: 30px auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #eef0f7;
+  background-color: #fff;
+  width: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+      .create_post_girl {
+          width: 100%;
+          object-fit: cover;
+          height: 500px;
+        }
+        .create_post_form {
+            padding: 30px;
+            .createpost_title {
+              font-size: 1.2rem;
+              color: #1a2250;
+            }
+            
+            .createpost_desc {
+              font-size: 14px;
+              color: #3b4169;
+              margin: 10px 0;
+            }
+            .createpost_input_span {
+              display: block;
+              margin: 20px 0 0;
+              color: #babdcb;
+              font-size: 12px;
+            }
+            .createpost_input {
+              width: 100%;
+              border: none;
+              padding: 14px;
+              border-radius: 3px;
+
+              border: 2px solid #daddec;
+              margin: 5px 0 10px;
+              font-size: 1rem;
+              color: #656880;
+            }
+        
+            .language_select {
+              border: 2px solid #daddec;
+              margin: 5px 0 10px;
+              font-size: 1rem;
+              color: #656880;
+              padding: 10px;
+              margin-bottom: 70px;
+            }
+
+            .nice_button_1 { 
+              outline: none;
+              cursor: pointer;
+              font-weight: 600;
+              border-radius: 3px;
+              padding: 12px 24px;
+              border: 0;
+              color: #fff;
+              background: #000a47;
+              line-height: 1.15;
+              font-size: 16px;
+              width: 100%;
+              display: block;
+              &:hover {
+                  transition: all .1s ease;
+                  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+              }
+            }
+        
+        }
+      
+}

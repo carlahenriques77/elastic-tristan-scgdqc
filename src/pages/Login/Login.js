@@ -32,35 +32,35 @@ const Login = () => {
   }, [authError]);
 
   return (
-    <div className="register_div">
-      <h2 className="register_title">LogIn to Upload</h2>
-
-      <p className="register_desc">LogIn and Share your Histories</p>
-
-      <form className="register_form" onSubmit={formHandleSubmit}>
-        <label className="register_label" htmlFor="">
-          <span className="register_label_span">Email:</span>
-
+    <div className="login_container">
+      <h2 className="login_title">Login to Your Account</h2>
+  
+      <p className="login_desc">Login to unlock exclusive content.</p>
+  
+      <form className="login_form" onSubmit={formHandleSubmit}>
+        <label className="login_label" htmlFor="">
+          <span className="login_label_span">Email:</span>
+  
           <input
-            className="register_input"
+            className="login_input"
             type="mail"
             name="Email"
             required
-            placeholder="XXX@gmail.com"
+            placeholder="Enter Your Email Address"
             value={formEmail}
             onChange={(changeEvent) => setFormEmail(changeEvent.target.value)}
           />
         </label>
-
-        <label className="register_label" htmlFor="">
-          <span className="register_label_span">Password:</span>
-
+  
+        <label className="login_label" htmlFor="">
+          <span className="login_label_span">Password:</span>
+  
           <input
-            className="register_input"
+            className="login_input"
             type="password"
             name="secretCode"
             required
-            placeholder="********"
+            placeholder="Enter Your Password"
             minLength={8}
             value={formPassword}
             onChange={(changeEvent) =>
@@ -68,17 +68,17 @@ const Login = () => {
             }
           />
         </label>
-
-        {!authLoading && <button className="signup_button">LogIn</button>}
+  
+        {!authLoading && <button className="login_button">LogIn</button>}
         {authLoading && (
-          <button className="signup_button" disabled>
+          <button className="login_button" disabled>
             Loading...
           </button>
         )}
-        {formError && <p className="error">{formError}</p>}
+        {formError && <p className="login_error">{formError}</p>}
       </form>
     </div>
-  );
+  );  
 };
 
 export default Login;
