@@ -1,0 +1,17 @@
+.about_container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 50px;
+    background: black;
+    color: white !important;
+}
+
+.about_description {
+    font-size: 20px;
+}
+
+.spinner_container {
+    margin: auto;
+}

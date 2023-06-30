@@ -1,32 +1,41 @@
 import "./CreatePost.scss";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useCreatePost } from "../../hooks/usePostManagement";
+import useAllFormFields from "../../hooks/useAllFormFields";
 
 const CreatePost = () => {
-  const [postTitle, setPostTitle] = useState("");
-  const [postImage, setPostImage] = useState("");
-  const [postBody, setPostBody] = useState("");
-  const [postTags, setPostTags] = useState([]);
-  const [formError, setFormError] = useState("");
+  const {
+    postTitle,
+    postImage,
+    setPostImage,
+    postBody,
+    postTags,
+    formPostError,
+    setFormPostError,
+    selectedLanguage,
+    handlePostTitleChange,
+    handlePostImageChange,
+    handlePostBodyChange,
+    handlePostTagsChange,
+    handleSelectedLanguageChange
+  } = useAllFormFields();
+
   const { currentUser } = useAuthValue();
   const { insertDocument, createResponse, createLoading } = useCreatePost(
     "posts"
   );
   const submitFormRedirect = useNavigate();
 
-  const [selectedLanguage, setSelectedLanguage] = useState("");
-
   const formHandleSubmit = (submitEvent) => {
     submitEvent.preventDefault();
 
-    setFormError("");
+    setFormPostError("");
 
     try {
       new URL(postImage);
     } catch (error) {
-      setFormError("The Image must be a valid URL.");
+      setFormPostError("The Image must be a valid URL.");
       return;
     }
 
@@ -41,7 +50,7 @@ const CreatePost = () => {
       !postBody ||
       !selectedLanguage
     ) {
-      setFormError("Please fill all of the inputs.");
+      setFormPostError("Please fill all of the inputs.");
       return;
     }
 
@@ -63,7 +72,7 @@ const CreatePost = () => {
       <img
         className="create_post_girl"
         src="https://bestprofilepictures.com/wp-content/uploads/2022/09/Pretty-Anime-Girl-Profile-Picture-1024x1024.jpg"
-        alt="image"
+        alt="Create Post Girl"
       />
 
       <form className="create_post_form" onSubmit={formHandleSubmit}>
@@ -77,7 +86,7 @@ const CreatePost = () => {
             type="text"
             name="postTitle"
             placeholder="Post Title"
-            onChange={(changeEvent) => setPostTitle(changeEvent.target.value)}
+            onChange={handlePostTitleChange}
             value={postTitle}
           />
         </label>
@@ -89,19 +98,35 @@ const CreatePost = () => {
             type="text"
             name="postImage"
             placeholder="Image URL"
-            onChange={(changeEvent) => setPostImage(changeEvent.target.value)}
+            onChange={handlePostImageChange}
             value={postImage}
           />
         </label>
 
+        <p className="edit_image_preview_paragraph">Image Preview:</p>
+        {!postImage && (
+          <>
+            <p className="edit_image_preview_waiting">Waiting for URL...</p>
+          </>
+        )}
+        {postImage && (
+          <>
+            <img
+              src={postImage}
+              alt={insertDocument.postTitle}
+              className="edit_image_preview"
+            />
+          </>
+        )}
+
         <label className="createpost_label">
           <span className="createpost_input_span">Description:</span>
-          <input
+          <textarea
             className="createpost_input"
             type="text"
             name="postBody"
             placeholder="Enter Post Description"
-            onChange={(changeEvent) => setPostBody(changeEvent.target.value)}
+            onChange={handlePostBodyChange}
             value={postBody}
           />
         </label>
@@ -113,7 +138,7 @@ const CreatePost = () => {
             type="text"
             name="postTags"
             placeholder="Add Tags (comma-separated)"
-            onChange={(changeEvent) => setPostTags(changeEvent.target.value)}
+            onChange={handlePostTagsChange}
             value={postTags}
           />
         </label>
@@ -123,7 +148,7 @@ const CreatePost = () => {
           <select
             className="language_select"
             value={selectedLanguage}
-            onChange={(e) => setSelectedLanguage(e.target.value)}
+            onChange={handleSelectedLanguageChange}
           >
             <option value="">Select a language</option>
             <option value="https://images.freeimages.com/fic/images/icons/662/world_flag/256/flag_of_united_kingdom.png">
@@ -146,7 +171,7 @@ const CreatePost = () => {
         {createResponse.managementError && (
           <p className="error">{createResponse.managementError}</p>
         )}
-        {formError && <p className="error">{formError}</p>}
+        {formPostError && <p className="error">{formPostError}</p>}
       </form>
     </div>
   );

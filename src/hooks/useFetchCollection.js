@@ -33,14 +33,24 @@ export const useFetchCollection = (
         let documentQuery;
 
         if (search) {
+          const searchLower = search.toLowerCase();
           documentQuery = await query(
             collectionRef,
-            where("tagsArray", "array-contains", search),
+            where("tagsArray", "array-contains", searchLower),
             orderBy("createdAt", "desc")
           );
+        } else if (uid) {
+          documentQuery = await query(
+            collectionRef,
+
+            where("uid", "==", uid),
+            orderBy("createdAt", "desc")
+          );
+          // Delete this Whole Else If to get Edit Acess to All Posts
         } else {
           documentQuery = await query(
             collectionRef,
+
             orderBy("createdAt", "desc")
           );
         }
@@ -63,7 +73,7 @@ export const useFetchCollection = (
     }
 
     loadData();
-  }, [docCollection, search, uid, isFetchCancelled]);
+  }, [docCollection, fetchedDocuments, search, uid, isFetchCancelled]);
 
   useEffect(() => {
     return () => {

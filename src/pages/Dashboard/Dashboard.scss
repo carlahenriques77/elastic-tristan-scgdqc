@@ -1,0 +1,53 @@
+.dashboard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 60%;
+  margin: 30px auto 60px auto;
+
+  h2 {
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    color: #aaa;
+  }
+
+  .post_header {
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  .post_row {
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    display: grid;
+    padding: 10px;
+    gap: 10px;
+
+    p {
+      color: black;
+    }
+  }
+}
+
+.no_posts_dashboard {
+  margin-top: 30px;
+
+  .no_post_description {
+    color: orangered;
+  }
+
+  .no_posts_button {
+    margin-top: 10px;
+  }
+}

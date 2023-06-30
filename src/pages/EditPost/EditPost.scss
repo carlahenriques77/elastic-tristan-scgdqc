@@ -1,0 +1,73 @@
+.container_edit {
+  margin: 30px auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #eef0f7;
+  background-color: #fff;
+  width: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  .edit_post_girl {
+    width: 100%;
+    object-fit: cover;
+    height: 500px;
+  }
+  .edit_post_form {
+    padding: 30px;
+    .edit_post_title {
+      font-size: 1.2rem;
+      color: #1a2250;
+    }
+
+    .edit_post_desc {
+      font-size: 14px;
+      color: #3b4169;
+      margin: 10px 0;
+    }
+    .edit_post_input_span {
+      display: block;
+      margin: 20px 0 0;
+      color: #babdcb;
+      font-size: 12px;
+    }
+    .edit_post_input {
+      width: 100%;
+      border: none;
+      padding: 14px;
+      border-radius: 3px;
+
+      border: 2px solid #daddec;
+      margin: 5px 0 10px;
+      font-size: 1rem;
+      color: #656880;
+    }
+
+    .edit_image_preview_paragraph {
+      margin-top: 5px;
+      color: #babdcb;
+      font-size: 15px;
+    }
+
+    .edit_image_preview_waiting {
+      margin-top: 10px;
+      font-size: 10px;
+    }
+
+    .edit_image_preview {
+      margin-top: 10px;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    .edit_language_select {
+      border: 2px solid #daddec;
+      margin: 5px 0 10px;
+      font-size: 1rem;
+      color: #656880;
+      padding: 10px;
+      margin-bottom: 70px;
+    }
+  }
+}

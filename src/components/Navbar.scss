@@ -40,29 +40,6 @@
     .nav_li_link {
       margin-right: 1em;
 
-      a {
-        text-decoration: none;
-        font-size: 1.2em;
-        padding: 0.4em 0.7em;
-        color: white;
-        background: lighten(#475EDF, 3%);  
-        border: 1px solid darken(#475EDF, 4%);
-        box-shadow: 0px 2px 0 darken(#475EDF, 5%), 2px 4px 6px darken(#475EDF, 2%);
-        font-weight: 900;
-        letter-spacing: 1px;
-        transition: all 150ms linear;
-
-        &:hover {
-        background: darken(#475EDF, 1.5%);
-        border: 1px solid rgba(#000, .05);
-        box-shadow: 1px 1px 2px rgba(#fff, .2);
-        color: lighten(#475EDF, 18%); 
-        text-decoration: none;
-        text-shadow: -1px -1px 0 darken(#475EDF, 9.5%);
-        transition: all 250ms linear;
-        }
-      }
-
       .small_button {
         cursor: pointer;
         padding: 0.3em 0.7em;

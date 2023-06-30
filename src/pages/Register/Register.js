@@ -1,32 +1,38 @@
 import React from "react";
-
 import "./Register.scss";
-
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import useAllFormFields from "../../hooks/useAllFormFields";
 
 const Register = () => {
-  const [formDisplayName, setFormDisplayName] = useState("");
-  const [formEmail, setFormEmail] = useState("");
-  const [formPassword, setFormPassword] = useState("");
-  const [formConfirmPassword, setFormConfirmPassword] = useState("");
-  const [formError, setFormError] = useState("");
+  const {
+    formDisplayName,
+    formEmail,
+    formPassword,
+    formConfirmPassword,
+    formAuthError,
+    setFormAuthError,
+    handleDisplayNameChange,
+    handleEmailChange,
+    handlePasswordChange,
+    handleConfirmPasswordChange,
+  } = useAllFormFields();
 
   const { registerUser, authError, authLoading } = useAuthentication();
 
   const formHandleSubmit = async (submitEvent) => {
     submitEvent.preventDefault();
 
-    setFormError("");
+    setFormAuthError("");
 
     const userDetails = {
       formDisplayName,
       formEmail,
-      formPassword
+      formPassword,
     };
 
     if (formPassword !== formConfirmPassword) {
-      setFormError("The Password must be the same!");
+      setFormAuthError("The Password must be the same!");
       return;
     }
 
@@ -35,17 +41,15 @@ const Register = () => {
 
   useEffect(() => {
     if (authError) {
-      setFormError(authError);
+      setFormAuthError(authError);
     }
-  }, [authError]);
+  }, [authError, setFormAuthError]);
 
   return (
     <div className="register_div">
       <h2 className="register_title">Join and Share Your Content</h2>
 
-      <p className="register_desc">
-        Build Your Profile and Share Your Stories
-      </p>
+      <p className="register_desc">Build Your Profile and Share Your Stories</p>
 
       <form onSubmit={formHandleSubmit} className="register_form">
         <label className="register_label" htmlFor="">
@@ -58,9 +62,7 @@ const Register = () => {
             required
             placeholder="Enter Your Username"
             value={formDisplayName}
-            onChange={(changeEvent) =>
-              setFormDisplayName(changeEvent.target.value)
-            }
+            onChange={handleDisplayNameChange}
           />
         </label>
 
@@ -74,7 +76,7 @@ const Register = () => {
             required
             placeholder="Enter Your Email Address"
             value={formEmail}
-            onChange={(changeEvent) => setFormEmail(changeEvent.target.value)}
+            onChange={handleEmailChange}
           />
         </label>
 
@@ -89,9 +91,7 @@ const Register = () => {
             placeholder="Enter a Strong Password"
             minLength={8}
             value={formPassword}
-            onChange={(changeEvent) =>
-              setFormPassword(changeEvent.target.value)
-            }
+            onChange={handlePasswordChange}
           />
         </label>
 
@@ -106,9 +106,7 @@ const Register = () => {
             placeholder="Confirm Your Password"
             minLength={8}
             value={formConfirmPassword}
-            onChange={(changeEvent) =>
-              setFormConfirmPassword(changeEvent.target.value)
-            }
+            onChange={handleConfirmPasswordChange}
           />
         </label>
 
@@ -118,7 +116,7 @@ const Register = () => {
             Loading...
           </button>
         )}
-        {formError && <p className="error">{formError}</p>}
+        {formAuthError && <p className="error">{formAuthError}</p>}
       </form>
     </div>
   );

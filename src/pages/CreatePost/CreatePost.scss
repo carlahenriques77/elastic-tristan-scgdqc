@@ -44,6 +44,23 @@ margin: 30px auto;
               font-size: 1rem;
               color: #656880;
             }
+   
+            .edit_image_preview_paragraph {
+              margin-top: 5px;
+              color: #babdcb;
+              font-size: 15px;
+            }
+
+            .edit_image_preview_waiting {
+              margin-top: 10px;
+              font-size: 10px;
+            }
+
+            .edit_image_preview {
+              margin-top: 10px;
+              max-width: 100%;
+              object-fit: cover;
+            }
         
             .language_select {
               border: 2px solid #daddec;

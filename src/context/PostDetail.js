@@ -8,17 +8,8 @@ const PostDetail = ({ displayPost }) => {
     languageTitleColor += " spanish_post";
   }
 
-  let languageTitleColor01 = "post_title01";
-
-  if (displayPost.selectedLanguage !== "https://images.freeimages.com/fic/images/icons/662/world_flag/256/flag_of_united_kingdom.png") {
-    languageTitleColor01 += " spanish_post";
-  }
-
   return (
     <div className="post_detailDiv">
-
-      <div className="post_padding">
-
       <div className="image_container">
         <img
           src={displayPost.postImage}
@@ -41,22 +32,8 @@ const PostDetail = ({ displayPost }) => {
           </Link>
         </div>
       </div>
-      </div>
-      <div className="test01">
-        <Link
-          to={`/Posts/${displayPost.id}`}
-          className={languageTitleColor01}
-        >
-          <img
-            src={displayPost.selectedLanguage}
-            alt={displayPost.postTitle}
-            className="language"
-          />
-          {displayPost.postTitle}
-        </Link>
-        
-      <div className="test02">
 
+      <div className="title_container">
         <Link
           to={`/Posts/${displayPost.id}`}
           className={languageTitleColor}
@@ -69,11 +46,6 @@ const PostDetail = ({ displayPost }) => {
           {displayPost.postTitle}
         </Link>
       </div>
-      </div>
-
-     
-
- 
     </div>
   );
 };

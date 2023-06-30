@@ -20,7 +20,9 @@ const Navbar = () => {
         <li className="nav_li_link">
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "active" : "")}
+            className={({ isActive }) =>
+              isActive ? "active button_style_1" : "button_style_1"
+            }
           >
             Home
           </NavLink>
@@ -28,47 +30,61 @@ const Navbar = () => {
         <li className="nav_li_link">
           <NavLink
             to="/About"
-            className={({ isActive }) => (isActive ? "active" : "")}
+            className={({ isActive }) =>
+              isActive ? "active button_style_1" : "button_style_1"
+            }
           >
             About
           </NavLink>
         </li>
         {currentUser && (
           <>
-          <li className="nav_li_link">
-            <NavLink
-              to="/Posts/Create"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              CreatePost
-            </NavLink>
-          </li>
+            <li className="nav_li_link">
+              <NavLink
+                to="/Dashboard"
+                className={({ isActive }) =>
+                  isActive ? "active button_style_1" : "button_style_1"
+                }
+              >
+                Dashboard
+              </NavLink>
+            </li>
+            <li className="nav_li_link">
+              <NavLink
+                to="/Posts/Create"
+                className={({ isActive }) =>
+                  isActive ? "active button_style_1" : "button_style_1"
+                }
+              >
+                CreatePost
+              </NavLink>
+            </li>
           </>
         )}
         {!currentUser && (
           <>
             <li className="nav_li_link">
               <NavLink
-                to="/Register"
+                to="/Login"
                 className={({ isActive }) =>
                   isActive
-                    ? "active" + " " + "smallButton"
-                    : "smallButton"
+                    ? "active button_style_1 small_button"
+                    : "button_style_1 small_button"
                 }
               >
-                Register
+                Login
               </NavLink>
             </li>
             <li className="nav_li_link">
               <NavLink
-                to="/Login"
+                to="/Register"
                 className={({ isActive }) =>
                   isActive
-                    ? "active" + "smallButton"
-                    : "smallButton"
+                    ? "active button_style_1 small_button"
+                    : "button_style_1 small_button"
                 }
               >
-                Login
+                Register
               </NavLink>
             </li>
           </>
@@ -76,7 +92,10 @@ const Navbar = () => {
         {currentUser && (
           <>
             <li className="nav_li_link">
-              <button onClick={logoutUser} className="small_button">
+              <button
+                onClick={logoutUser}
+                className="button_style_1 small_button"
+              >
                 Logout
               </button>
             </li>

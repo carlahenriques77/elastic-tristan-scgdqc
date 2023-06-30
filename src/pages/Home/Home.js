@@ -26,9 +26,9 @@ const Home = () => {
 
         <form className="home_search_form" onSubmit={homeHandleSubmit}>
           <input
-          className="home_search_input"
+            className="home_search_input"
             type="text"
-            placeholder="Search for #Tags..."
+            placeholder="Search for a #Tag..."
             onChange={(changeEvent) => setHomeQuery(changeEvent.target.value)}
           />
 
@@ -36,7 +36,12 @@ const Home = () => {
         </form>
       </div>
 
-      {fetchLoadingStatus && <p>Loading...</p>}
+      {fetchLoadingStatus && (
+        <div className="spinner_container_home">
+          <p>Loading Posts...</p>
+          <div className="home_spinner" id="html-spinner"></div>
+        </div>
+      )}
       <div className="home_posts_gallery">
         {fetchedDocuments &&
           fetchedDocuments.map((fetchedPost) => (
@@ -48,7 +53,10 @@ const Home = () => {
         <div className="home_noposts">
           <p>No Posts Found...</p>
 
-          <Link to="/Posts/Create" className="home_create_first_post_button">
+          <Link
+            to="/Posts/Create"
+            className="home_create_first_post_button button_style_3"
+          >
             Create the First Post
           </Link>
         </div>

@@ -3,61 +3,98 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  list-style-type: none;
 }
 
 body {
   background: #f6fcff;
   font-family: "Montserrat", sans-serif;
 }
-/* 
-input,
-textarea {
-  font-family: "Montserrat", sans-serif;
-  resize: none;
-}
-
-input::placeholder,
-textarea::placeholder {
-  font-family: "Montserrat", sans-serif;
-  color: #aaa;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-} */
-
-/* <FormStyles> */
-/* form {
-  max-width: 40%;
-  margin: 0 auto;
-} */
-/* 
-label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1em;
-  font-weight: bold;
-  text-align: left;
-}
-
-label span {
-  margin-bottom: 0.3em;
-  font-weight: bold;
-  text-align: left;
-}
-
-input,
-textarea {
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  padding: 0.8em 0;
-  background: transparent;
-} */
-/* <FormStyles> */
 
 /* <ButtonStyle> */
+
+.button_style_1 {
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 0.4em 0.7em;
+  color: white;
+  background: lighten(#475edf, 3%);
+  border: 1px solid darken(#475edf, 4%);
+  box-shadow: 0px 2px 0 darken(#475edf, 5%), 2px 4px 6px darken(#475edf, 2%);
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+
+  &:hover {
+    background: darken(#475edf, 1.5%);
+    border: 1px solid rgba(#000, 0.05);
+    box-shadow: 1px 1px 2px rgba(#fff, 0.2);
+    color: lighten(#475edf, 18%);
+    text-decoration: none;
+    text-shadow: -1px -1px 0 darken(#475edf, 9.5%);
+    transition: all 250ms linear;
+  }
+}
+
+.button_style_2 {
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 12px 24px;
+  border: 0;
+  color: #fff;
+  background: #000a47;
+  line-height: 1.15;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  &:hover {
+    transition: all 0.1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+  }
+}
+
+.button_style_3 {
+  font-family: "Staatliches", cursive;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  background-image: linear-gradient(to right, #e052a0, #f15c41) !important;
+  border-radius: 3px;
+  padding: 16px 18px 15px;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #e6375a;
+    background-image: none !important;
+  }
+}
+
+.button_style_4 {
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 12px 24px;
+  border: 0;
+  background: #000a47;
+  line-height: 1.15;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  color: white;
+
+  &:hover {
+    transition: all 0.1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+  }
+}
+
 .btn {
   background: #1a8918;
   color: white;
@@ -129,3 +166,49 @@ button[disabled] {
 }
 
 /* <////No Posts Style////> */
+
+#html-spinner{
+  width:40px;
+  height:40px;
+  border:4px solid #1d1d1d;
+  border-top:4px solid white;
+  border-radius:50%;
+}
+
+#html-spinner {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 1.2s;
+  -webkit-animation-name: rotate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  
+  -moz-transition-property: -moz-transform;
+  -moz-animation-name: rotate; 
+  -moz-animation-duration: 1.2s; 
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  
+  transition-property: transform;
+  animation-name: rotate; 
+  animation-duration: 1.2s; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+
+/* Rest of page style*/
